@@ -1,0 +1,19 @@
+size 10 10
+set font texcmr
+begin graph
+  scale auto
+  data tweets_clean_count.tsv d1=c1,c3
+  d1 marker triangle color red key "twitter"
+  let d3 = 30*(x)^(-3.5)
+  d3 line lstyle 9 color gray60 key "b = 3.5"
+  let d4 = 30*(x)^(-2.5)
+  d4 line lstyle 9 color blue key "b = 2.5"
+  let d5 = 12.5^(5)*(x)^(-1.1598)
+  d5 line lstyle 9 color green key "b = 1"
+  xtitle "Rank"
+  ytitle "Count"
+  title "Words Distribution"
+  xaxis log min 1 max 1000000 dticks 1
+  yaxis log min 1 max 1000000 dticks 1
+  !key pos tl hei 0.4
+end graph

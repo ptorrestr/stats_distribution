@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+if [ ! -f $1 ]; then
+  echo "$1 does not exist, or is not a file"
+  exit 1
+fi
+
+count_cat $1 -cp $2 | count_mapper | sort -k1,1 | count_reducer | sort -k2,2nr | cat -n
+
+exit 0
